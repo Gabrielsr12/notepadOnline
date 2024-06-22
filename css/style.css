@@ -116,6 +116,26 @@ button:hover:not(:disabled) {
 .denybutton {
   background-color: #d80000;
 }
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer p {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+footer p span {
+  color: #0056b3;
+}
+footer i {
+  font-size: 30px;
+}
+footer a{
+  text-decoration: none;
+  color: #3d3d3d;
+}
 
 @media only screen and (max-width: 768px) {
   .container {

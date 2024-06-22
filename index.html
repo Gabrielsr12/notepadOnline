@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário Moderno</title>
+    <title>Notepad Online</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -51,26 +52,32 @@
 <body>
     <div id="overlay" class="overlay" onclick="hidePopup()"></div>
     <div id="popup" class="popup">
-        <p>Deseja recarregar a página e limpar os dados do formulário?</p>
+        <p>Do you want to reload the page and clear the form data?</p>
         <div class="popupbutton-container">
-            <button class="acceptbutton" onclick="reloadPage()">Sim</button>
-            <button class="denybutton" onclick="hidePopup()">Não</button>
+            <button class="acceptbutton" onclick="reloadPage()">Yes</button>
+            <button class="denybutton" onclick="hidePopup()">No</button>
         </div>
     </div>
 
     <div class="titleContainer">
-        <h2>Bloco de notas online</h2>
+        <h2>Online Notepad</h2>
     </div>
 
     <div class="container">
         <form onsubmit="handleSubmit(event)">
             <textarea id="textarea" name="content"></textarea>
-            <button type="submit">Enviar</button>
+            <button type="submit">Send text</button>
         </form>
         <button id="download-btn" style="display:none;" onclick="showPopup()">
-            <a id="download-link">Download TXT</a>
+            <a id="download-link">Download .TXT</a>
         </button>
     </div>
+    <br>
+    <footer>
+        <p>© <span>OnlineNotepad</span> copyright all right reserved</p>
+        <a href="https://github.com/Gabrielsr12/notepadonline" target="_blank"><i class='bx bxl-github'></i></a>
+    </footer>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 
 </html>
