@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Moderno</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            tinymce.init({
+                selector: '#textarea'
+            });
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const content = tinymce.get('textarea').getContent();
+
+            // Desabilitar o botão de envio
+            const submitButton = document.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviado';
+
+            document.getElementById('download-btn').style.display = 'block';
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const downloadLink = document.getElementById('download-link');
+            downloadLink.href = url;
+            downloadLink.download = 'conteudo.txt';
+        }
+
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="overlay" class="overlay" onclick="hidePopup()"></div>
+    <div id="popup" class="popup">
+        <p>Deseja recarregar a página e limpar os dados do formulário?</p>
+        <div class="popupbutton-container">
+            <button class="acceptbutton" onclick="reloadPage()">Sim</button>
+            <button class="denybutton" onclick="hidePopup()">Não</button>
+        </div>
+    </div>
+
+    <div class="titleContainer">
+        <h2>Bloco de notas online</h2>
+    </div>
+
+    <div class="container">
+        <form onsubmit="handleSubmit(event)">
+            <textarea id="textarea" name="content"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <button id="download-btn" style="display:none;" onclick="showPopup()">
+            <a id="download-link">Download TXT</a>
+        </button>
+    </div>
+</body>
+
+</html>
