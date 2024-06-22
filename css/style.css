@@ -117,14 +117,6 @@ button:hover:not(:disabled) {
   background-color: #d80000;
 }
 
-.titleContainer {
-  background-color: #fff;
-  padding: 0 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-}
-
 @media only screen and (max-width: 768px) {
   .container {
     margin: 15px;
